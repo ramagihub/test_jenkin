@@ -6,14 +6,14 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
-                pip install -r requirements.txt'
+                pip install -r requirements.txt
             }
         }
 
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
-                python path/to/your/selenium_test_script.py
+                python login.py
             }
         }
     }
