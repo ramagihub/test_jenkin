@@ -21,10 +21,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Clean up any resources or artifacts here if needed
-        }
-    }
-}
+    
 }
