@@ -1,2 +1,4 @@
-selenium==3.0.0
+selenium==4.0.0
 webdriver_manager
+pytest
+allure-pytest
