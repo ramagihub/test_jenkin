@@ -17,6 +17,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
+		    bat "cd  D:\\sample_jenkins"
                 bat "pytest test_login.py"
             }
         }
