@@ -6,7 +6,10 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
+                python3 -m virtualenv -p  venv
+		        source venv/bin/activate
                 pip install -r requirements.txt
+
             }
         }
 
