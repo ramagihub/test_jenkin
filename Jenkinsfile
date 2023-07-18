@@ -6,21 +6,20 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
-                pip install -r requirements.txt
+		    bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
+	
+                bat "python -m venv myenv"
+		bat "C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\myenv\\Scripts\\activate.bat"
+                bat "pip install -r requirement.txt"
+
             }
         }
-
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
-                python login.py
+                bat "python login.py"
             }
         }
     }
-
-    post {
-        always {
-            // Clean up any resources or artifacts here if needed
-        }
-    }
+  
 }
