@@ -6,4 +6,4 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 driver.get("https://demo.opencart.com/admin/")
 op=driver.title
-assert op=="Administration1",'mismatched title'
+assert op=="Administration",'mismatched title'
