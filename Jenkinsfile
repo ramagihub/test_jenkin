@@ -6,20 +6,18 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
-                python3 -m virtualenv -p  venv
-		        source venv/bin/activate
-                pip install -r requirements.txt
+                bat python3 -m virtualenv -p  venv
+		bat source venv/bin/activate
+                bat pip install -r requirements.txt
 
             }
         }
-
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
-                python login.py
+                bat python login.py
             }
         }
     }
-
-    
+  
 }
