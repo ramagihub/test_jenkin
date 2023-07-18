@@ -19,9 +19,8 @@ pipeline {
                 // Execute your Selenium test script using Python
 		    bat "cd D:\\sample_jenkins"
 		    bat "allure generate"
-		    bat "pytest --alluredir=allure-report/"
+		    bat "pytest --alluredir=allure-report/ test_login.py"
 		    bat "allure serve allure-report/"
-                bat "pytest test_login.py"
             }
         }
     }
