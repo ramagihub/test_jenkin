@@ -17,6 +17,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
+		    bat "cd D:\\sample_jenkins"
 		    bat "allure generate"
 		    bat "pytest --alluredir=allure-report/"
 		    bat "allure serve allure-report/"
