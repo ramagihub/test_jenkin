@@ -9,7 +9,7 @@ pipeline {
 		    bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
 	
                 bat "python -m venv myenv"
-		bat "myvenv\Scripts\activate.bat"
+		bat "myvenv\\Scripts\\activate.bat"
                 bat "pip install -r requirements.txt"
 
             }
