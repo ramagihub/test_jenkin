@@ -7,7 +7,7 @@ pipeline {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
 	
-                bat "virtualenv -p C:\Users\91997\AppData\Local\Programs\Python\Python38-32\python3 venv"
+                bat "virtualenv -p C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\python3 venv"
 		bat "source venv/bin/activate"
                 bat "pip install -r requirements.txt"
 
