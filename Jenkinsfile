@@ -17,7 +17,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 // Execute your Selenium test script using Python
-                bat "pytest --alluredir="D:\\Scaler" test_login.py"
+                bat "pytest test_login.py"
             }
         }
     }
