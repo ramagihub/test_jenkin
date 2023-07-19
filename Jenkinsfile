@@ -21,6 +21,8 @@ pipeline {
             steps {
                 // Execute your Selenium test script using Python
 		    bat "cd D:\\sample_jenkins"
+		    echo "Hello, ${USERNAME}!"
+       		    echo "Deploying to ${ENVIRONMENT}"
 		    bat "pytest --alluredir=allure-report1/ test_login.py"
             }
         }
