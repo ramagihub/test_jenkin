@@ -1,8 +1,11 @@
 pipeline {
     agent any
+     parameters {
+    string(name: 'USERNAME', defaultValue: 'john_doe', description: 'Enter your username')
+    choice(name: 'ENVIRONMENT', choices: ['dev', 'qa', 'prod'], description: 'Select the deployment environment')}
 
     stages { 
-
+        
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
