@@ -1,7 +1,7 @@
 pipeline {
     agent any
      parameters {
-    string(name: 'USERNAME', description: 'Enter your username')
+    string(name: 'USERNAME')
     choice(name: 'ENVIRONMENT', choices: ['dev', 'qa1', 'prod'], description: 'Select the deployment environment')}
 
     stages { 
@@ -9,11 +9,11 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install Python dependencies (e.g., Selenium) and any other setup tasks
-		    bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
+		//     bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
 	
-                bat "python -m venv myenv"
-		bat "C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\myenv\\Scripts\\activate.bat"
-                bat "pip install -r requirement.txt"
+  //               bat "python -m venv myenv"
+		// bat "C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\myenv\\Scripts\\activate.bat"
+  //               bat "pip install -r requirement.txt"
 
             }
         }
@@ -23,7 +23,7 @@ pipeline {
 		    bat "cd D:\\sample_jenkins"
 		    echo "Hello, ${USERNAME}!"
        		    echo "Deploying to ${ENVIRONMENT}"
-		    bat "pytest --alluredir=allure-report1/ test_login.py"
+		    // bat "pytest --alluredir=allure-report1/ test_login.py"
             }
         }
     }
