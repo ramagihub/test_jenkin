@@ -1,7 +1,7 @@
 pipeline {
     agent any
      parameters {
-    string(name1: 'USERNAME')
+    string(name: 'USERNAME')
     choice(name: 'ENVIRONMENT', choices: ['dev', 'qa1', 'prod'], description: 'Select the deployment environment')}
 
     stages { 
