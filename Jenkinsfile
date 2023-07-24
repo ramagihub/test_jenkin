@@ -7,7 +7,7 @@ pipeline {
         
         stage('Setup') {
             steps {
-                // Install Python dependencies (e.g., Selenium) and any other setup tasks
+                // Install Python dependencies (e.g., Selenium) and any other setup tasks erre
 		 bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
 		bat "python -m venv myenv"
 		bat "C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\myenv\\Scripts\\activate.bat"
