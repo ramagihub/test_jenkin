@@ -1,8 +1,5 @@
 pipeline {
     agent any
-     parameters {
-    string(name: 'USERNAME')}
-
     stages { 
         
         stage('Setup') {
@@ -17,8 +14,7 @@ pipeline {
         }
         stage('Run Selenium Tests') {
             steps {
-       		    echo "Deploying to ${ENVIRONMENT}"
-		    // bat "pytest --alluredir=allure-report1/ test_login.py"
+       		 bat "pytest --alluredir=allure-report1/ test_login.py"
             }
         }
     }
