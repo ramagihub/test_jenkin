@@ -1,22 +1,57 @@
 pipeline {
     agent any
-    stages { 
-        
-        stage('Setup') {
-            steps {
-                // Install Python dependencies (e.g., Selenium) and any other setup tasks erre
-		 bat "cd C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32"
-		bat "python -m venv myenv"
-		bat "C:\\Users\\91997\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\myenv\\Scripts\\activate.bat"
-                bat "pip install -r requirement.txt"
 
+    environment {
+        PYTHON_ENV = "venv"
+    }
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                checkout scm
             }
         }
-        stage('Run Selenium Tests') {
+
+        stage('Set up Python Environment') {
             steps {
-       		 bat "pytest --alluredir=allure-report1/ test_login.py"
+                sh '''
+                    python3 -m venv ${PYTHON_ENV}
+                    . ${PYTHON_ENV}/bin/activate
+                    pip install --upgrade pip
+                '''
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    . ${PYTHON_ENV}/bin/activate
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                    . ${PYTHON_ENV}/bin/activate
+                    pytest test.py
+                '''
+            }
+        }
+
+        stage('Archive Test Reports') {
+            steps {
+                junit 'report.xml'
             }
         }
     }
-  
+
+    post {
+        always {
+            echo "Cleaning up workspace..."
+            deleteDir()
+        }
+    }
 }
